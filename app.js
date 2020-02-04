@@ -48,6 +48,12 @@ app.use(indexRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds", campgroundRoutes);
 
-app.listen(3000, function() {
+// local version
+// app.listen(3000, function() {
+// 	 console.log("Server has started!!");
+// });
+
+// deploy version
+app.listen(process.env.PORT, process.env.IP, function() {
 	 console.log("Server has started!!");
 });
