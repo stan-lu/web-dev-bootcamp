@@ -26,14 +26,6 @@ mongoose.connect(process.env.DATABASEURL, {
 }).catch(err => {
 	console.log("ERROR: ", err.message);
 });
-// mongoose.connect("mongodb+srv://dbUser:dbUserdbUser@cluster0-ibbql.mongodb.net/test?retryWrites=true&w=majority", {
-// 	useNewUrlParser: true,
-// 	useCreateIndex: true
-// }).then(function(){
-// 	console.log("Connected to DB");
-// }).catch(err => {
-// 	console.log("ERROR: ", err.message);
-// });
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
