@@ -18,8 +18,7 @@ var commentRoutes 	= require("./routes/comments"),
 
 // mongoose.set("useNewUrlParser", true);
 mongoose.set("useUnifiedTopology", true);
-// mongoose.connect("mongodb://localhost:27017/yelp_camp");
-mongoose.connect("mongodb+srv://dbUser:dbUserdbUser@cluster0-ibbql.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect(process.env.DATABASEURL, {
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(function(){
@@ -27,6 +26,14 @@ mongoose.connect("mongodb+srv://dbUser:dbUserdbUser@cluster0-ibbql.mongodb.net/t
 }).catch(err => {
 	console.log("ERROR: ", err.message);
 });
+// mongoose.connect("mongodb+srv://dbUser:dbUserdbUser@cluster0-ibbql.mongodb.net/test?retryWrites=true&w=majority", {
+// 	useNewUrlParser: true,
+// 	useCreateIndex: true
+// }).then(function(){
+// 	console.log("Connected to DB");
+// }).catch(err => {
+// 	console.log("ERROR: ", err.message);
+// });
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
